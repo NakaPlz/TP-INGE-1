@@ -1,0 +1,45 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "username": "admin",
+      "password": "123"
+    }
+  ],
+  "workshops": [
+    {
+      "id": 1,
+      "title": "Taller de Pintura Óleo",
+      "description": "Aprende técnicas clásicas de pintura.",
+      "date": "2026-05-10",
+      "location": "Centro Cultural"
+    },
+    {
+      "id": 1775588903450,
+      "title": "Taller de Ceramica",
+      "description": "Crea tus propias vasijas",
+      "date": "2026-06-20",
+      "location": "Estudio de Arte"
+    }
+  ],
+  "enrollments": [
+    {
+      "id": 1775588936846,
+      "workshopId": "1775588903450",
+      "studentName": "Test Student",
+      "studentEmail": "test@example.com"
+    },
+    {
+      "id": 1775588962536,
+      "workshopId": "1775588903450",
+      "studentName": "Test Student",
+      "studentEmail": "test@example.com"
+    },
+    {
+      "id": 1775589034550,
+      "workshopId": "1",
+      "studentName": "Test Student",
+      "studentEmail": "test@example.com"
+    }
+  ]
+}
