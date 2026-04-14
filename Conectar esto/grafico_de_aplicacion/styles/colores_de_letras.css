@@ -1,0 +1,49 @@
+/* GAMA DE COLORES: AZUL */
+.letraAzul{color: #2563EB;}
+
+/* GAMA DE COLORES: CYAN MODERNO */
+.letraCyan{color: #06B6D4;}
+
+/* GAMA DE COLORES: NARANJA */
+.letraNaranja{color: #FB923C;}
+
+/* GAMA DE COLORES: AMARILLO */
+.letraAmarilla{color: #FACC15;}
+
+/* GAMA DE COLORES: BLANCA */
+.letraBlanca{color: #EFFFFF;}
+.letraBlancaHover:hover{color: #EFFFFF;}
+
+/* GAMA DE COLORES: PINK ROSA */
+.letraRosa{color: #EC4899;}
+
+/* GAMA DE COLORES: MORADO */
+.letraMorada{color: #6D28D9;}
+
+/* GAMA DE COLORES: ROJO */
+.letraRoja{color: #EF4444;}
+
+/* GAMA DE COLORES: Verde Success  */
+.letraVerdeSucess{color: #22c55e;}
+
+/* GAMA DE COLORES: Verde SOFT */
+.letraVerdeSoft{color: #86EFAC;}
+
+/* GAMA DE COLORES: Verde Oscuro */
+.letraVerdeOscuro{color: #15803d;}
+
+/* GAMA DE COLORES: Rojo suave */
+.letraRojaSuave{color: #FCA5A5;}
+
+/* GAMA DE COLORES: Rojo oscuro */
+.letraRojoOscuro{color: #991B1B;}
+
+/* GAMA DE COLORES: Gris Claro */
+.letraGrisClaro{color: #E5E7EB;}
+
+/* GAMA DE COLORES: Gris Oscuro */
+.letraGrisOscuro{color: #374151;}
+
+/* GAMA DE COLORES: Negro */
+.letraNegra{color: #333333;}
+.letraNegraHover:hover{color: #333333;}

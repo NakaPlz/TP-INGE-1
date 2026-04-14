@@ -1,0 +1,42 @@
+[
+    {
+        "id": 1,
+        "nombre": "Curso de arcilla",
+        "descripcion": "Armá y moldea tus primeras figuras",
+        "lat": -34.52264,
+        "lng": -58.70040,
+        "direccion": "Juan María Gutiérrez 1150, Los Polvorines, Buenos Aires"
+    },
+    {
+        "id": 2,
+        "nombre": "Curso de herrería",
+        "descripcion": "Construí tus propias rejas",
+        "lat": -34.52180,
+        "lng": -58.70321,
+        "direccion": "José León Suárez 800, Los Polvorines, Buenos Aires"
+    },
+    {
+        "id": 3,
+        "nombre": "Curso de jabones",
+        "descripcion": "No es lo que parece",
+        "lat": -34.52405,
+        "lng": -58.69850,
+        "direccion": "Verdi 920, Los Polvorines, Buenos Aires"
+    },
+    {
+        "id": 4,
+        "nombre": "Curso saumerios",
+        "descripcion": "Construí los mejores saumerios de la India",
+        "lat": -34.52330,
+        "lng": -58.70200,
+        "direccion": "Ruta 202 y Juan M. Gutiérrez, Los Polvorines, Buenos Aires"
+    },
+    {
+        "id": 5,
+        "nombre": "Curso pintura",
+        "descripcion": "Esto no es paintball",
+        "lat": -34.52050,
+        "lng": -58.69980,
+        "direccion": "Plaza Juan María Gutiérrez, Los Polvorines, Buenos Aires"
+    }
+]

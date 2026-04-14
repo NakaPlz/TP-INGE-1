@@ -1,0 +1,184 @@
+@media (min-width: 800px) {
+
+	.gap {gap: 20px;}
+
+	.radius {border-radius: 30px;}
+	.inferiorRadius {border-radius: 0px 0px 30px 30px;}
+	.superiorRadius {border-radius: 30px 30px 0px 0px;}
+
+	.radiusDer {border-radius: 30px 0px 0px 30px;}
+	.radiusDerHover:hover {border-radius: 0px 30px 0px 30px;}
+	.radiusIzq {border-radius: 0px 30px 30px 0px;}
+	.radiusIzqHover:hover {border-radius: 0px 30px 30px 0px;}
+
+	.linea {border: 0; height: 1px;	background-color: #ddd; margin: 20px 0;}
+	.lineaNaranja {background-color: rgb(255, 150, 89); height: 3px; max-width: 100%; padding: 0;}
+
+	.bajar10 {top: 10vh; position: relative;}
+	.subirArriba10 {bottom: 10vh; position: relative;}
+	.subirArriba20 {bottom: 20vh; position: relative;}
+	.subirArriba50 {bottom: 50vh; position: relative;}
+
+	.atrasDe {position: relative; z-index: 1;}
+	.adelanteDe {position: relative; z-index: 2;}
+
+	.margenAbajo5 {margin-bottom: 5vw;}
+	.margenArriba5 {margin-top: 5vw;}
+	.margen5 {margin: 5vw;}
+	.margen2 {margin: 2vw;}
+	.margen1 {margin: 1vw;}
+	.margen0 {margin: .2vw;}
+	.margenNulo {margin: 0px;}
+	.margenDer1 {margin-right: 1vw;}
+	.margenDer2 {margin-right: 2vw;}
+	.margenIzq {margin-left: 2vw;}
+	.margenAbajo {margin-bottom: 5vh;}
+	.margenArriba {margin-top: 5vh;}
+
+	.paddingNulo {padding: 0px;}
+	.padding1 {padding: 1.1vw;}
+	.padding2 {padding: 2vw;}
+	.padding3 {padding: .5vw;}
+	.paddingTop30 {padding-top: 30vh;}
+	.paddingTop20 {padding-top: 20vh;}
+	.paddingTop10 {padding-top: 10vh;}
+	.paddingTop5 {padding-top: 5vh;}
+	.paddingBottom30 {padding-bottom: 30vh;}
+	.paddingBottom10 {padding-bottom: 10vh;}
+	.paddingBottom5 {padding-bottom: 5vh;}
+	.paddingBottom20 {padding-bottom: 20vh;}
+	.paddingDer1 {padding-right: 1vw;}
+	.paddingDer3 {padding-right: 3vw;}
+	.paddingDer5 {padding-right: 5vw;}
+	.paddingDer10 {padding-right: 10vw;}
+	.paddingDer15 {padding-right: 15vw;}
+	.paddingDer30 {padding-right: 30vw;}
+	.paddingIzq1 {padding-left: 1vw;}
+	.paddingIzq3 {padding-left: 3vw;}
+	.paddingIzq5 {padding-left: 5vw;}
+	.paddingIzq10 {padding-left: 10vw;}
+	.paddingIzq15 {padding-left: 15vw;}
+	.paddingIzq30 {padding-left: 30vw;}
+
+	input[type="text"], input[type="password"],input[class="usuario_login"], input[class="password_login"] {
+		width: 250px;
+		padding: 5px;
+		border: 1px solid #aaa;
+		border-radius: 5px;
+		font-size: 15px;
+		top: 100px;
+		left: 50%;
+		transform: translateX(-50%);
+		position: absolute;
+	}
+
+	input[type="text"]:focus, input[type="password"]:focus, input[class="usuario_login"]:focus, input[class="password_login"]:focus {
+		outline: none;
+		border-color: #202020;
+		background-color: #eca945;
+	}
+
+	.childCajaDerInf {position: absolute; bottom: 0; right: 0; padding: 10px;}
+	.childCajaIzqInf {position: absolute; bottom: 0; left: 0; padding: 10px;}
+
+	.widMax5 {max-width: 5%;}
+	.widMax10 {max-width: 10%;}
+	.widMax20 {max-width: 20%;}
+	.widMax80 {max-width: 80%;}
+	.widMax90 {max-width: 90%;}
+	.widMax100 {max-width: 100%;}
+
+	.wid10 {width: 10%;}
+	.wid20 {width: 20%;}
+	.wid30 {width: 30%;}
+	.wid50 {width: 50%;}
+	.wid60 {width: 60%;}
+	.wid70 {width: 70%;}
+	.wid90 {width: 90%;}
+	.wid100 {width: 100%;}
+
+	table {width: 90vw; height: auto;}
+
+	.heighMax {height: 100%;}
+	.height50 {height: 50%;}
+	.heightNulo {height: 0px;}
+
+	.tamanioDeLinea {line-height: 40px;}
+
+	.interlineado15 {line-height: 1.5;}
+	.interlineado2 {line-height: 2em;}
+
+	.linea-fina {Border-top: 1px solid #4242424f; width: 80%;	margin: 5vh auto;}
+
+	.altura50 {height: 50vh;}
+	.altura40 {height: 40vh;}
+	.altura30 {height: 30vh;}
+	.altura20 {height: 20vh;}
+	.altura3 {height: 3vh;}
+	.alturaMinMax {min-height: 59vh;}
+	.alturaMinMaxPro {min-height: 100vh;}
+
+	.horizontal {display: flex;	flex-wrap: wrap; justify-content: space-between;}
+	.horizontalFlexEnd {display: flex; flex-wrap: wrap; justify-content: end;}
+
+	button {
+		padding: 1%;
+		font-size: medium;
+		font-weight: bold;
+		text-decoration: none;
+		cursor: pointer;
+		border: none;
+		border-radius: 5px;
+		transition: background-color 0.3s ease;
+	}
+
+
+	main {display: flex; flex-direction: column; text-align: center; align-items: center;}
+
+	footer {text-align: center; position: relative;	z-index: 2;}
+
+	#resetButton:hover #iconoRefresco {
+		filter: invert(42%) sepia(80%) saturate(500%) hue-rotate(180deg);
+		transform: rotate(360deg);
+		transition: filter 0.25s ease, transform 0.25s ease;
+	}
+
+	#toast {
+		visibility: hidden;
+		position: fixed;
+		z-index: 9999;
+		color: white;
+		padding: 12px 20px;
+		border-radius: 10px;
+		transition: opacity 0.5s, bottom 0.5s;
+		transform: translate(50%, -50%);
+		display: flex;
+	}
+
+	#toast.show {visibility: visible; opacity: 1; bottom: 40px;}
+	.toast-icon {width: 24px; height: 24px; padding-left: 1vw;}
+
+	.toast-buttons {
+		margin-top: 10px;
+		display: flex;
+		justify-content: flex-end;
+		gap: 10px;
+		width: 100%;
+	}
+
+	.toast-buttons button {
+		padding: 6px 12px;
+		border: none;
+		border-radius: 6px;
+		cursor: pointer;
+		font-weight: bold;
+		transition: background-color 0.3s;
+	}
+
+	.toast-buttons button:hover {filter: brightness(0.9);}
+
+	.toast-buttons .btn-si {background-color: #4caf50;	color: white;}
+
+	.toast-buttons .btn-no {background-color: #f44336;	color: white;}
+
+}

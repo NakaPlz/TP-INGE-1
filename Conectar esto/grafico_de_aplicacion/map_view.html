@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Mapa Táctico</title>
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+        <link rel="stylesheet" href="styles/style.css">
+        <link rel="stylesheet" href="styles/fuentes.css">
+        <link rel="stylesheet" href="styles/imports_fuentes.css">
+        <link rel="stylesheet" href="styles/colores_de_fondos.css">
+        <link rel="stylesheet" href="styles/colores_de_letras.css">
+        <link rel="stylesheet" href="styles/media_screen_mayor_799.css">
+    </head>
+    <body class="fondoNegro ocultarSobrante">
+        <header class="fondoGrisOscuro dropSombraNegra padding2 flex centrarCaja2">
+		    <h1 class="textoRoboto sombraNegra letraBlanca margen2">CURSOS BRINDADOS Y UBICACIONES</h1>
+	    </header>
+        <div class="flex">
+            <main class="flex centrarCaja2 fondoNegro">
+                <input class="flex textoCentrado padding2 margin2" type="text" id="filtroNombre" placeholder="Ingresa el nombre del curso">
+                <pre id="tabla_de_informacion"></pre>
+            </main>
+            <div id="map-container">
+                <div id="tamanio_de_mapa" class="fondoNegro"></div>
+                <div id="modulo-controles" class="fondoNegroHover horizontal">
+                    <button id="btn_oscuro" class="letraVerdeSucess textoOrbitron fondoBlancoHover letraNegraHover radius padding1">Mapa oscuro</button>
+                    <button id="btn_claro" class="letraVerdeSucess textoOrbitron fondoBlancoHover letraNegraHover radius padding1">Mapa claro</button>
+                </div>
+                <div id="coords" class="letraVerdeSucess textoOrbitron fondoBlancoHover letraNegraHover">Lat: , Lng: </div>
+            </div>
+        </div>
+    </body>
+        <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+        <script src="instanciar_mapa.js"></script>
+        <script type="module" src="change_mode.js"></script>
+        <script type="module" src="filtrar_cursos.js"></script>
+</html>
