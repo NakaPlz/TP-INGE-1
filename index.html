@@ -291,8 +291,16 @@
 
 <!-- Leaflet JS -->
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-<!-- App JS -->
-<script src="app.js"></script>
+
+<!-- Módulos de la aplicación (en orden de dependencia) -->
+<script src="js/datos.js"></script>       <!-- Datos de prueba y ubicaciones -->
+<script src="js/storage.js"></script>     <!-- Estado global y localStorage -->
+<script src="js/utils.js"></script>       <!-- Toast y helpers de validación -->
+<script src="js/mapa.js"></script>        <!-- Lógica del mapa Leaflet -->
+<script src="js/filtros.js"></script>     <!-- Lista lateral y filtros -->
+<script src="js/inscripcion.js"></script> <!-- Modal de inscripción -->
+<script src="js/registro.js"></script>    <!-- Formulario wizard de talleres -->
+<script src="js/main.js"></script>        <!-- Punto de entrada y navegación -->
 
 </body>
 </html>
