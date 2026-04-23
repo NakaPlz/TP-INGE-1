@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Talleres en el Mapa — Centro Cultural Los Polvorines</title>
+  <meta name="description" content="Portal de talleres del centro cultural. Encontrá actividades, explorá el mapa y anotate en los talleres de tu zona.">
+
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;600;700&display=swap">
+  <!-- Estilos propios -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="app">
+
+  <!-- ══════════════════════════════════════════
+       HEADER / NAV
+  ══════════════════════════════════════════ -->
+  <header id="header">
+    <div id="header-brand">
+      <div class="brand-icon">🗺️</div>
+      <h1>Talleres en el Mapa</h1>
+    </div>
+
+    <nav id="nav-tabs" role="navigation" aria-label="Navegación principal">
+      <button id="btn-explorar" class="nav-btn active" aria-controls="vista-explorar">
+        🔍 Explorar Talleres
+      </button>
+      <button id="btn-registro" class="nav-btn" aria-controls="vista-registro">
+        ✏️ Registrar Taller
+      </button>
+    </nav>
+  </header>
+
+  <!-- ══════════════════════════════════════════
+       CONTENIDO PRINCIPAL
+  ══════════════════════════════════════════ -->
+  <main id="content">
+
+    <!-- ── VISTA: EXPLORAR ── -->
+    <section id="vista-explorar" class="vista active" aria-label="Explorar talleres">
+
+      <!-- Sidebar lateral -->
+      <aside id="sidebar" aria-label="Lista de talleres">
+        <div id="sidebar-header">
+          <h2>Talleres disponibles</h2>
+          <input
+            id="filtro-texto"
+            type="search"
+            placeholder="🔎 Buscar por nombre o actividad…"
+            aria-label="Filtrar talleres por nombre"
+          >
+          <select id="filtro-rubro" aria-label="Filtrar por rubro">
+            <option value="">Todos los rubros</option>
+          </select>
+          <div id="sidebar-count"></div>
+        </div>
+
+        <div id="lista-talleres" role="list" aria-label="Listado de talleres"></div>
+      </aside>
+
+      <!-- Mapa -->
+      <div id="map-wrapper">
+        <div id="mapa" role="application" aria-label="Mapa de talleres"></div>
+
+        <!-- Controles del mapa -->
+        <div id="map-controls" role="group" aria-label="Controles del mapa">
+          <button id="btn-claro" class="map-control-btn" aria-pressed="true">☀️ Claro</button>
+          <button id="btn-oscuro" class="map-control-btn" aria-pressed="false">🌙 Oscuro</button>
+        </div>
+
+        <!-- Coords -->
+        <div id="coords-display" aria-live="polite">Lat: —  Lng: —</div>
+      </div>
+
+    </section>
+
+
+    <!-- ── VISTA: REGISTRO ── -->
+    <section id="vista-registro" class="vista" aria-label="Registrar taller">
+
+      <div id="registro-container">
+
+        <!-- Indicador de pasos -->
+        <div id="pasos-registro" role="list" aria-label="Pasos del formulario">
+          <div class="paso-indicador activo" role="listitem">
+            <div class="paso-num">1</div>
+            <div class="paso-label">Tus datos</div>
+          </div>
+          <div class="paso-indicador" role="listitem">
+            <div class="paso-num">2</div>
+            <div class="paso-label">Tu taller</div>
+          </div>
+        </div>
+
+        <!-- PASO 1: Datos del colaborador -->
+        <div id="paso-1" class="form-card active" role="form" aria-label="Datos del colaborador">
+          <h2>👤 Datos del colaborador</h2>
+          <p class="form-subtitle">Ingresá tu información de contacto para identificar tu cuenta.</p>
+
+          <div class="form-group">
+            <label for="campo-nombre-colab">Nombre y apellido <span class="req">*</span></label>
+            <input
+              id="campo-nombre-colab"
+              class="form-input"
+              type="text"
+              placeholder="Ej: David Pérez"
+              autocomplete="name"
+            >
+          </div>
+
+          <div class="form-group">
+            <label for="campo-telefono">Teléfono <span class="req">*</span></label>
+            <input
+              id="campo-telefono"
+              class="form-input"
+              type="tel"
+              placeholder="Ej: 1102345678"
+              autocomplete="tel"
+            >
+          </div>
+
+          <div class="form-group">
+            <label for="campo-mail-colab">Correo electrónico <span class="req">*</span></label>
+            <input
+              id="campo-mail-colab"
+              class="form-input"
+              type="email"
+              placeholder="Ej: davidperez@mail.com"
+              autocomplete="email"
+            >
+          </div>
+
+          <div class="form-buttons">
+            <button id="btn-siguiente-1" class="btn-primary">Siguiente → Datos del taller</button>
+          </div>
+        </div>
+
+
+        <!-- PASO 2: Datos del taller -->
+        <div id="paso-2" class="form-card" role="form" aria-label="Datos del taller">
+          <h2>🏪 Datos del taller</h2>
+          <p class="form-subtitle">Completá la información de tu espacio de trabajo.</p>
+
+          <div class="form-group">
+            <label for="campo-nombre-taller">Nombre del taller <span class="req">*</span></label>
+            <input
+              id="campo-nombre-taller"
+              class="form-input"
+              type="text"
+              placeholder="Ej: Taller de Cerámica"
+            >
+          </div>
+
+          <div class="form-group">
+            <label for="campo-descripcion">Descripción general</label>
+            <textarea
+              id="campo-descripcion"
+              class="form-textarea"
+              placeholder="Contá brevemente de qué se trata tu taller…"
+            ></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="campo-actividad">Actividad ofrecida <span class="req">*</span></label>
+            <input
+              id="campo-actividad"
+              class="form-input"
+              type="text"
+              placeholder="Ej: Costura para principiantes"
+            >
+          </div>
+
+          <div class="form-group">
+            <label for="campo-rubro">Rubro <span class="req">*</span></label>
+            <input
+              id="campo-rubro"
+              class="form-input"
+              type="text"
+              placeholder="Ej: Artesanías, Arte, Oficios, Bienestar…"
+            >
+          </div>
+
+          <div class="form-group">
+            <label for="campo-contacto">Contacto / Redes sociales</label>
+            <input
+              id="campo-contacto"
+              class="form-input"
+              type="text"
+              placeholder="Ej: @mi_taller | 1102345678"
+            >
+          </div>
+
+          <!-- Logotipo -->
+          <div class="form-group">
+            <label>Foto / Logotipo <span style="font-weight:400;color:var(--text-muted)">(opcional)</span></label>
+            <label class="form-file-label" for="campo-logo">
+              <span class="form-file-icon">🖼️</span>
+              <span id="logo-filename">Seleccionar imagen</span>
+              <input id="campo-logo" type="file" accept="image/png,image/jpeg,image/webp">
+            </label>
+            <img id="logo-preview" alt="Preview del logo">
+          </div>
+
+          <!-- Ubicación (radio buttons) -->
+          <div class="form-group">
+            <label>📍 Ubicación del taller <span class="req">*</span></label>
+            <div class="ubicacion-grid" id="ubicaciones-grid">
+              <!-- Generado por JS -->
+            </div>
+          </div>
+
+          <div class="form-buttons">
+            <button id="btn-volver-2" class="btn-secondary">← Volver</button>
+            <button id="btn-guardar" class="btn-primary">✅ Guardar taller</button>
+          </div>
+        </div>
+
+      </div><!-- /registro-container -->
+
+
+      <!-- Estado de éxito -->
+      <div id="registro-exito" role="alert" aria-live="polite">
+        <div class="exito-icono">🎉</div>
+        <h2>¡Taller registrado!</h2>
+        <p>Tu taller ya aparece en el mapa y en la lista de exploración.</p>
+        <div class="form-buttons" style="justify-content:center;gap:12px">
+          <button id="btn-nuevo-taller" class="btn-secondary">➕ Registrar otro taller</button>
+          <button id="btn-ir-explorar" class="btn-primary">🗺️ Ir al mapa</button>
+        </div>
+      </div>
+
+    </section>
+
+  </main><!-- /content -->
+
+</div><!-- /app -->
+
+
+<!-- ══════════════════════════════════════════
+     MODAL DE INSCRIPCIÓN
+══════════════════════════════════════════ -->
+<div id="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+  <div id="modal-box">
+    <button id="modal-close" aria-label="Cerrar">✕</button>
+
+    <h2 id="modal-title">Inscribirse al taller</h2>
+    <p id="modal-subtitle"></p>
+
+    <div class="campo-form">
+      <label for="modal-nombre-visitante">Tu nombre completo</label>
+      <input
+        id="modal-nombre-visitante"
+        type="text"
+        placeholder="Ej: Juan Rodríguez"
+        autocomplete="name"
+      >
+    </div>
+
+    <div class="campo-form">
+      <label for="modal-mail-visitante">Tu correo electrónico</label>
+      <input
+        id="modal-mail-visitante"
+        type="email"
+        placeholder="Ej: juan@mail.com"
+        autocomplete="email"
+      >
+    </div>
+
+    <div class="form-buttons" style="margin-top:20px">
+      <button id="btn-confirmar-inscripcion" class="btn-primary">✋ Confirmar inscripción</button>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════
+     TOAST DE NOTIFICACIONES
+══════════════════════════════════════════ -->
+<div id="toast" role="status" aria-live="polite">
+  <span class="toast-icon">✅</span>
+  <span class="toast-msg"></span>
+</div>
+
+
+<!-- Leaflet JS -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<!-- Módulos de la aplicación (en orden de dependencia) -->
+<script src="js/datos.js"></script>       <!-- Datos de prueba y ubicaciones -->
+<script src="js/storage.js"></script>     <!-- Estado global y localStorage -->
+<script src="js/utils.js"></script>       <!-- Toast y helpers de validación -->
+<script src="js/mapa.js"></script>        <!-- Lógica del mapa Leaflet -->
+<script src="js/filtros.js"></script>     <!-- Lista lateral y filtros -->
+<script src="js/inscripcion.js"></script> <!-- Modal de inscripción -->
+<script src="js/registro.js"></script>    <!-- Formulario wizard de talleres -->
+<script src="js/main.js"></script>        <!-- Punto de entrada y navegación -->
+
+</body>
+</html>
